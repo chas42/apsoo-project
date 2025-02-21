@@ -1,0 +1,18 @@
+server:
+  port: 8084
+# descomentar linhas abaixo para o docker compose
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      routes:
+        - id: testEurekadotnet
+          uri: lb://testEurekadotnet
+          predicates:
+            - Path=/**
