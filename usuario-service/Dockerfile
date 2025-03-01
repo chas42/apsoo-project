@@ -1,7 +1,6 @@
 # Base Container
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS base
 WORKDIR /app
-EXPOSE 8090 8080
 
 #Build Container
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
