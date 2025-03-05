@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: property
+  datasource:
+    url: jdbc:h2:mem:testDB
+    driverClassName: org.h2.Driver
+    username: sa
+    password: password
+  jpa:
+    show-sql: true
+
+server:
+  port: 8081
+  forward-headers-strategy: framework
+  error:
+    include-stacktrace: never
+
+springdoc:
+  swagger-ui:
+    path: /property/swagger-ui.html
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://discovery:8761/eureka/

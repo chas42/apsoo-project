@@ -1,6 +1,6 @@
 server:
   port: 8084
-# descomentar linhas abaixo para o docker compose
+
 eureka:
   client:
     service-url:
@@ -15,4 +15,8 @@ spring:
         - id: usuario-service
           uri: lb://usuario-service
           predicates:
-            - Path=/**
+            - Path=/usuario/**
+        - id: property
+          uri: lb://property
+          predicates:
+            - Path=/property/**

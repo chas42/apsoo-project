@@ -1,7 +1,7 @@
 version: "3.8"
 
 networks:
-  minha-rede:
+  my-network:
 
 services:
   discovery:
@@ -10,15 +10,7 @@ services:
     ports:
       - "8761:8761"
     networks:
-      - minha-rede
-
-  usuario-service:
-    build:
-      context: ./usuario-service
-    depends_on:
-      - discovery
-    networks:
-      - minha-rede
+      - my-network
 
   gateway:
     build:
@@ -28,4 +20,21 @@ services:
     depends_on:
       - discovery
     networks:
-      - minha-rede
+      - my-network
+
+  property:
+    build:
+      context: ./property
+    depends_on:
+      - discovery
+    networks:
+      - my-network
+
+  usuario-service:
+    build:
+      context: ./usuario-service
+    depends_on:
+      - discovery
+    networks:
+      - my-network
+
