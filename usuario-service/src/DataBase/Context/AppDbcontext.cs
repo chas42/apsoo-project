@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using System;
 
 namespace DataBase.Context
 {
@@ -17,13 +18,11 @@ namespace DataBase.Context
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            if (optionsBuilder.IsConfigured)
+            if(!optionsBuilder.IsConfigured)
             {
-                return;
+                // Para garantir que não caia no SQL Server caso não seja configurado corretamente
+                optionsBuilder.UseInMemoryDatabase("BancoEmMemoria");
             }
-            optionsBuilder
-                .UseSqlServer(connectionString)
-                .UseLazyLoadingProxies();
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

@@ -30,7 +30,7 @@ services:
     networks:
       - my-network
 
-  usuario-service:
+  user:
     build:
       context: ./usuario-service
     depends_on:

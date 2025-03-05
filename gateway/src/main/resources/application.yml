@@ -12,11 +12,15 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: usuario-service
-          uri: lb://usuario-service
+        - id: user
+          uri: lb://user
           predicates:
-            - Path=/usuario/**
+            - Path=/user/**
+            # - Path=/auth/**
+            # - Path=/login/google
+            # - Path=/signin-google
         - id: property
           uri: lb://property
           predicates:
             - Path=/property/**
+            # - Path=/auth/**

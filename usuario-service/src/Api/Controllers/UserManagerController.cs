@@ -1,6 +1,8 @@
+using DataBase.Context;
 using Domain.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using ProjetoAPSOO.Services;
 
 namespace ProjetoAPSOO.Controllers
@@ -18,7 +20,7 @@ namespace ProjetoAPSOO.Controllers
             _logger = logger;
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("user/{id}")]
         public async Task<IActionResult> GetUserById(string id)
         {
             try
@@ -37,7 +39,7 @@ namespace ProjetoAPSOO.Controllers
             }
         }
 
-        [HttpGet("")]
+        [HttpGet("user")]
         public async Task<IActionResult> GetAllUsers()
         {
             try
@@ -54,7 +56,7 @@ namespace ProjetoAPSOO.Controllers
             }
         }
 
-        [HttpPut("{id}")]
+        [HttpPut("user/{id}")]
         public async Task<IActionResult> UpdateUser(string id, [FromBody] UserDto request)
         {
             try
@@ -74,7 +76,7 @@ namespace ProjetoAPSOO.Controllers
             }
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("user/{id}")]
         public async Task<IActionResult> DeleteUser(string id)
         {
             try

@@ -21,6 +21,8 @@ RUN dotnet build "Api/Api.csproj" -c Release -o /app/build
 FROM build AS publish
 RUN dotnet publish "Api/Api.csproj" -c Release -o /app/publish
 
+ENV ASPNETCORE_URLS=http://+:8080
+
 #Release Container
 FROM base AS final
 WORKDIR /app
