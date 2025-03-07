@@ -28,7 +28,7 @@ public class UserServiceImpl implements UserService {
     }
 
     public WebClient client() {
-        String serviceUrl  =getServiceUrl("user");
+        String serviceUrl = getServiceUrl("user");
         return wBuilder.baseUrl(serviceUrl).build();
     }
 
@@ -36,7 +36,7 @@ public class UserServiceImpl implements UserService {
     public UserDTO getById(Long id) {
 
        return client().get()
-                .uri("/user/{id}", "1")
+                .uri("/user/{id}", id)
                 .retrieve()
                 .bodyToMono(UserDTO.class)
                .block();

@@ -1,6 +1,6 @@
 package br.com.apsoo.payment.service.impl;
 
-import br.com.apsoo.payment.service.PaymentDTO;
+import br.com.apsoo.payment.dto.PaymentDTO;
 import br.com.apsoo.payment.service.PaymentService;
 import org.springframework.stereotype.Service;
 

@@ -4,7 +4,7 @@ import br.com.apsoo.payment.dto.CreateTransactionDTO;
 import br.com.apsoo.payment.dto.TransactionDTO;
 import br.com.apsoo.payment.model.TransactionModel;
 import br.com.apsoo.payment.repository.TransactionRepository;
-import br.com.apsoo.payment.service.PaymentDTO;
+import br.com.apsoo.payment.dto.PaymentDTO;
 import br.com.apsoo.payment.service.PaymentService;
 import br.com.apsoo.payment.service.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
