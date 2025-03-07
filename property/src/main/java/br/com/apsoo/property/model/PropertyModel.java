@@ -28,9 +28,8 @@ public class PropertyModel {
     private LocalDateTime minDate;
     private int numberRooms;
     private int maxGuests;
-    private long userId;
-
-    @OneToOne(cascade = CascadeType.ALL)
+    private long ownerId;
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "address_id", referencedColumnName = "id")
     private AddressModel address;
 
@@ -44,7 +43,7 @@ public class PropertyModel {
         this.minDate = propertyDTO.minDate();
         this.numberRooms = propertyDTO.numberRooms();
         this.maxGuests = propertyDTO.maxGuests();
-        this.userId = propertyDTO.userId();
+        this.ownerId = propertyDTO.ownerId();
         this.address = new AddressModel(propertyDTO.address());
     }
 }

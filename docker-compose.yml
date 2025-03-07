@@ -1,5 +1,3 @@
-version: "3.8"
-
 networks:
   my-network:
 
@@ -29,6 +27,14 @@ services:
       - discovery
     networks:
       - my-network
+
+  payment:
+    build:
+      context: ./payment
+    depends_on:
+      - discovery
+    networks:
+        - my-network
 
   user:
     build:

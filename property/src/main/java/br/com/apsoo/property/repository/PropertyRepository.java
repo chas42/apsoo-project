@@ -8,6 +8,6 @@ import java.util.Optional;
 
 public interface PropertyRepository extends JpaRepository<PropertyModel, Long> {
 
-    List<PropertyModel> findByUserId(long userId);
+    List<PropertyModel> findByOwnerId(long userId);
 
 }

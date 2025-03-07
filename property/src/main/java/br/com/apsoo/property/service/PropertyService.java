@@ -1,17 +1,19 @@
 package br.com.apsoo.property.service;
 
 import br.com.apsoo.property.dto.PropertyDTO;
+import br.com.apsoo.property.model.PropertyModel;
 
 import java.util.List;
 
 public interface PropertyService {
 
-    PropertyDTO createProperty(PropertyDTO propertyDTO);
-    PropertyDTO updateProperty(PropertyDTO propertyDTO);
-    void deleteProperty(long id);
-    PropertyDTO getProperty(long id);
-    List<PropertyDTO> getProperties();
-    List<PropertyDTO> getPropertiesByUserId(long userId);
+    PropertyDTO create(PropertyDTO propertyDTO);
+    PropertyDTO update(PropertyDTO propertyDTO);
+    void delete(long id);
+    PropertyDTO getById(long id);
+    PropertyModel getByIdModel(long id);
+    List<PropertyDTO> listAll();
+    List<PropertyDTO> getByUserId(long userId);
     List<PropertyDTO> getRentalPropertiesByUserId(long userId);
 
 }

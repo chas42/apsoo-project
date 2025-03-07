@@ -23,24 +23,24 @@ public class PropertyController {
 
     @PostMapping
     public ResponseEntity<PropertyDTO> createProperty(@RequestBody PropertyDTO propertyDTO) {
-        return ResponseEntity.ok(propertyService.createProperty(propertyDTO));
+        return ResponseEntity.ok(propertyService.create(propertyDTO));
     }
 
     @PutMapping
     public ResponseEntity<PropertyDTO> updateProperty(PropertyDTO propertyDTO) {
-        return ResponseEntity.ok(propertyService.updateProperty(propertyDTO));
+        return ResponseEntity.ok(propertyService.update(propertyDTO));
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteProperty(@PathVariable  long id) {
-        propertyService.deleteProperty(id);
+        propertyService.delete(id);
         return ResponseEntity.ok().build();
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<PropertyDTO> getProperty(@PathVariable long id) {
         try {
-            return ResponseEntity.ok(propertyService.getProperty(id));
+            return ResponseEntity.ok(propertyService.getById(id));
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Property not found", e);
         }
@@ -48,7 +48,7 @@ public class PropertyController {
 
     @GetMapping
     public ResponseEntity<List<PropertyDTO>> getProperties() {
-        return ResponseEntity.ok(propertyService.getProperties());
+        return ResponseEntity.ok(propertyService.listAll());
     }
 
 }
