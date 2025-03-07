@@ -41,8 +41,6 @@ public class PropertyServiceImpl implements PropertyService {
             throw new NotFoundException("User not found");
         }
 
-        propertyModel = propertyRepository.save(propertyModel);
-
         Property validProperty = null;
         switch (propertyModel.getType()){
             case "house":
@@ -57,6 +55,7 @@ public class PropertyServiceImpl implements PropertyService {
                 throw new IllegalArgumentException("Invalid type");
         }
 
+        propertyModel = propertyRepository.save(propertyModel);
 
         return new PropertyDTO(propertyModel);
     }
