@@ -14,6 +14,7 @@ import br.com.apsoo.property.service.PropertyService;
 import br.com.apsoo.property.service.ReservationService;
 import br.com.apsoo.property.service.TransactionService;
 import br.com.apsoo.property.service.UserService;
+import jakarta.transaction.Transactional;
 import jakarta.ws.rs.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -38,6 +39,7 @@ public class ReservationServiceImpl implements ReservationService {
     }
 
     @Override
+    @Transactional
     public ReservationDTO create(ReservationDTO reservationDTO) {
 
         PropertyModel propertyModel = propertyService.getByIdModel(reservationDTO.property().id());
